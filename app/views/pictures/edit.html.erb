@@ -1,0 +1,11 @@
+<h1>Editing Picture</h1>
+
+<%= render 'form', picture: @picture %>
+
+<%= link_to @picture do %>
+    <button class="btn btn-primary">Show</button>
+<% end %>
+|
+<%= link_to pictures_path do %>
+    <button class="btn btn-primary">Back</button>
+<% end %>

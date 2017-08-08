@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @picture.name %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag @picture.image %>
+</p>
+
+<%= link_to edit_picture_path(@picture) do %>
+    <button class="btn btn-primary">Edit</button>
+<% end %>
+|
+<%= link_to pictures_path do %>
+    <button class="btn btn-primary">Back</button>
+<% end %>
