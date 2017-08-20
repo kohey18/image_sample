@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :set_picture, only: [:show, :edit, :update, :destroy, :order]
 
   # GET /pictures
   # GET /pictures.json
@@ -61,6 +61,20 @@ class PicturesController < ApplicationController
     end
   end
 
+  def order
+    case params[:order].to_i
+      when 1
+        @picture.move_higher
+      when 2
+        @picture.move_lower
+      when 3
+        @picture.move_to_top
+      when 4
+        @picture.move_to_bottom
+    end
+    redirect_to pictures_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
@@ -69,6 +83,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:name, :image)
+      params.require(:picture).permit(:name, :image, :position)
     end
 end
