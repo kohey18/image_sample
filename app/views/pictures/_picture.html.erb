@@ -1,0 +1,39 @@
+<tr>
+  <td><%= picture.id %></td>
+  <td><%= picture.name %></td>
+  <td><%= image_tag picture.image %></td>
+  <td>
+    <%= link_to picture do %>
+        <button class="btn btn-primary">Show</button>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to edit_picture_path(picture) do %>
+        <button class="btn btn-primary">Edit</button>
+    <% end %>
+  </td>
+  <td><%= link_to picture, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+        <button class="btn btn-primary">Destroy</button>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to order_picture_path(picture, {order: 1}), method: :post do %>
+        <button class="btn btn-primary">↑</button>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to order_picture_path(picture, {order: 2}), method: :post do %>
+        <button class="btn btn-primary">↓</button>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to order_picture_path(picture, {order: 3}), method: :post do %>
+        <button class="btn btn-primary">Top</button>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to order_picture_path(picture, {order: 4}), method: :post do %>
+        <button class="btn btn-primary">Bottom</button>
+    <% end %>
+  </td>
+</tr>
