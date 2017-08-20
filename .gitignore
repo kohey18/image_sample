@@ -24,3 +24,4 @@
 .idea
 public/system/pictures
 *.iml
+.idea/workspace.xml
