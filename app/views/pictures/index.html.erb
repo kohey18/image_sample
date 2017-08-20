@@ -2,6 +2,10 @@
 
 <h1>Pictures</h1>
 
+<%= link_to new_picture_path do %>
+    <button class="btn btn-primary">New</button>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -31,7 +35,7 @@
               <button class="btn btn-primary">Edit</button>
           <% end %>
         </td>
-        <td><%= link_to picture, method: :delete, data: { confirm: 'Are you sure?' } do %>
+        <td><%= link_to picture, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
               <button class="btn btn-primary">Destroy</button>
           <% end %>
         </td>
@@ -61,8 +65,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to new_picture_path do %>
-    <button class="btn btn-primary">New</button>
-<% end %>

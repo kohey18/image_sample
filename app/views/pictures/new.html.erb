@@ -2,4 +2,6 @@
 
 <%= render 'form', picture: @picture %>
 
-<%= link_to 'Back', pictures_path %>
+<%= link_to pictures_path do %>
+    <button class="btn btn-primary">Back</button>
+<% end %>
