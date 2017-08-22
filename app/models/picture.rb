@@ -1,5 +1,7 @@
 class Picture < ActiveRecord::Base
 
+  belongs_to :category
+
   default_scope -> {order(position: :asc)}
   acts_as_list
 
