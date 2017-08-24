@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820035512) do
+ActiveRecord::Schema.define(version: 20170822005648) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -21,6 +27,9 @@ ActiveRecord::Schema.define(version: 20170820035512) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "position"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_pictures_on_category_id"
   end
 
+  add_foreign_key "pictures", "categories"
 end

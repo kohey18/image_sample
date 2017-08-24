@@ -10,6 +10,11 @@
   <%= image_tag @picture.image %>
 </p>
 
+<p>
+  <strong>Category:</strong>
+  <%= @picture.category.name %>
+</p>
+
 <%= link_to edit_picture_path(@picture) do %>
     <button class="btn btn-primary">Edit</button>
 <% end %>
