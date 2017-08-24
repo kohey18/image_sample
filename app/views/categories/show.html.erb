@@ -5,5 +5,28 @@
   <%= @category.name %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to edit_category_path(@category) do %>
+    <button class="btn btn-primary">Edit</button>
+<% end %>
+|
+<%= link_to categories_path do %>
+    <button class="btn btn-primary">Back</button>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Category</th>
+    <th>Action</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%= render partial: "pictures/picture",
+             collection: Picture.where(category_id: @category.id) %>
+  </tbody>
+</table>
